@@ -10,12 +10,152 @@
   <section class="section">
     <div class="container">
       <h1 class="title">
-        Hello World
+        Jonathan Gyle Sean bills
       </h1>
-      <p class="subtitle">
-        My first website with <strong>Bulma</strong>!
-      </p>
+      
+      <table class="table is-fullwidth is-striped">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>PGE</th>
+            <th>Water</th>
+            <th>Trash</th>
+            <th>Internet</th>
+            <th>total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="septemberRow">
+            <td>September</td>
+            <td>9.79</td>
+            <td>23.54</td>
+            <td>36.98</td>
+            <td>46.39</td>
+            <td id="sepTot">Data5</td>
+          </tr>
+        
+          <tr>
+            <td>October</td>
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+            <td>Data4</td>
+            <td>Data5</td>
+          </tr>
+        
+          <tr>
+            <td>November</td>
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+            <td>Data4</td>
+            <td>Data5</td>
+          </tr>
+        
+          <tr>
+            <td>December</td>
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+            <td>Data4</td>
+            <td>Data5</td>
+          </tr>
+        
+          <tr>
+            <td>January</td>
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+            <td>Data4</td>
+            <td>Data5</td>
+          </tr>
+        
+          <tr>
+            <td>February</td>
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+            <td>Data4</td>
+            <td>Data5</td>
+          </tr>
+        
+          <tr>
+            <td>March</td>
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+            <td>Data4</td>
+            <td>Data5</td>
+          </tr>
+        
+          <tr>
+            <td>April</td>
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+            <td>Data4</td>
+            <td>Data5</td>
+          </tr>
+        
+          <tr>
+            <td>May</td>
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+            <td>Data4</td>
+            <td>Data5</td>
+          </tr>
+        
+          <tr>
+            <td>June</td>
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+            <td>Data4</td>
+            <td>Data5</td>
+          </tr>
+        
+          <tr>
+            <td>July</td>
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+            <td>Data4</td>
+            <td>Data5</td>
+          </tr>
+        
+          <tr>
+            <td>August</td>
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+            <td>Data4</td>
+            <td>Data5</td>
+          </tr>
+        </tbody>
+        
+      </table>
     </div>
   </section>
+  <script>
+    function calculateAndUpdateTotal(monthRow) {
+            var pge = parseFloat(monthRow.cells[1].textContent);
+            monthRow.cells[1].textContent = (pge/3).toFixed(2);
+            var water = parseFloat(monthRow.cells[2].textContent);
+            monthRow.cells[2].textContent = (water/3).toFixed(2);
+            var trash = parseFloat(monthRow.cells[3].textContent);
+            monthRow.cells[3].textContent = (trash/3).toFixed(2);
+            var internet = parseFloat(monthRow.cells[4].textContent);
+            monthRow.cells[4].textContent = (internet/3).toFixed(2);
+            
+            var sum = (pge / 3) + (water / 3) + (trash / 3) + (internet / 3);
+            
+            monthRow.cells[5].textContent = sum.toFixed(2);
+        }
+
+        // Call the function for September
+        var septemberRow = document.getElementById("septemberRow");
+        calculateAndUpdateTotal(septemberRow);
+</script>
   </body>
 </html>
