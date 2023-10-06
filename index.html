@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   </head>
   <body background="BillsWebsite/assets/money.jpg">
-  <section class="section">
-    <div class="container">
+  <section class="section  ">
+    <div class="container ">
       <h1 class="title" >
         Jonathan Gyle Sean bills
       </h1>
       
-      <table class="table is-fullwidth is-striped ">
+      <table class="table is-fullwidth is-striped is-mobile ">
         <thead>
           <tr>
             <th>Month</th>
@@ -152,16 +152,17 @@
   </section>
   <script>
     function calculateAndUpdateTotal(monthRow) {
-            var pge = parseFloat(monthRow.cells[1].textContent);
+            let pge = parseFloat(monthRow.cells[1].textContent);
             monthRow.cells[1].textContent = (pge/3).toFixed(2);
-            var water = parseFloat(monthRow.cells[2].textContent);
+            let water = parseFloat(monthRow.cells[2].textContent);
             monthRow.cells[2].textContent = (water/3).toFixed(2);
-            var trash = parseFloat(monthRow.cells[3].textContent);
+            let trash = parseFloat(monthRow.cells[3].textContent);
             monthRow.cells[3].textContent = (trash/3).toFixed(2);
-            var internet = parseFloat(monthRow.cells[4].textContent);
+            let internet = parseFloat(monthRow.cells[4].textContent);
             monthRow.cells[4].textContent = (internet/3).toFixed(2);
             
-            var sum = (pge / 3) + (water / 3) + (trash / 3) + (internet / 3);
+            let sum = (pge ) + (water ) + (trash ) + (internet );
+            sum/=3;
             
             monthRow.cells[5].textContent = sum.toFixed(2);
         }
