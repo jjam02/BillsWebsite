@@ -1,175 +1,166 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PAY YOUR BILLS</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
   </head>
   <body background="BillsWebsite/assets/money.jpg">
-  <section class="section  ">
-    <div class="container ">
-      <h1 class="title" >
-        Jonathan Gyle Sean bills
-      </h1>
-      
-      <table class="table is-fullwidth is-striped is-mobile ">
-        <thead>
-          <tr>
-            <th>Month</th>
-            <th>PGE</th>
-            <th>Water</th>
-            <th>Trash</th>
-            <th>Internet</th>
-            <th>Total</th>
-            <th>Due</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="septemberRow" style="background-color: green;" class="has-text-weight-bold" >
-            <td>September</td>
-            <td>9.79</td>
-            <td>0</td>
-            <td>0</td>
-            <td>46.39</td>
-            <td id="sepTot">Data5</td>
-            <td>10/12</td>
-          </tr>
-        
-          <tr>
-            <td>October</td>
-            <td>Data1</td>
-            <td>Data2</td>
-            <td>Data3</td>
-            <td>Data4</td>
-            <td>Data5</td>
-            <td>TBD</td>
-          </tr>
-        
-          <tr>
-            <td>November</td>
-            <td>Data1</td>
-            <td>Data2</td>
-            <td>Data3</td>
-            <td>Data4</td>
-            <td>Data5</td>
-            <td>TBD</td>
-          </tr>
-        
-          <tr>
-            <td>December</td>
-            <td>Data1</td>
-            <td>Data2</td>
-            <td>Data3</td>
-            <td>Data4</td>
-            <td>Data5</td>
-            <td>TBD</td>
-          </tr>
-        
-          <tr>
-            <td>January</td>
-            <td>Data1</td>
-            <td>Data2</td>
-            <td>Data3</td>
-            <td>Data4</td>
-            <td>Data5</td>
-            <td>TBD</td>
-          </tr>
-        
-          <tr>
-            <td>February</td>
-            <td>Data1</td>
-            <td>Data2</td>
-            <td>Data3</td>
-            <td>Data4</td>
-            <td>Data5</td>
-            <td>TBD</td>
-          </tr>
-        
-          <tr>
-            <td>March</td>
-            <td>Data1</td>
-            <td>Data2</td>
-            <td>Data3</td>
-            <td>Data4</td>
-            <td>Data5</td>
-            <td>TBD</td>
-          </tr>
-        
-          <tr>
-            <td>April</td>
-            <td>Data1</td>
-            <td>Data2</td>
-            <td>Data3</td>
-            <td>Data4</td>
-            <td>Data5</td>
-            <td>TBD</td>
-          </tr>
-        
-          <tr>
-            <td>May</td>
-            <td>Data1</td>
-            <td>Data2</td>
-            <td>Data3</td>
-            <td>Data4</td>
-            <td>Data5</td>
-            <td>TBD</td>
-          </tr>
-        
-          <tr>
-            <td>June</td>
-            <td>Data1</td>
-            <td>Data2</td>
-            <td>Data3</td>
-            <td>Data4</td>
-            <td>Data5</td>
-            <td>TBD</td>
-          </tr>
-        
-          <tr>
-            <td>July</td>
-            <td>Data1</td>
-            <td>Data2</td>
-            <td>Data3</td>
-            <td>Data4</td>
-            <td>Data5</td>
-            <td>TBD</td>
-          </tr>
-        
-          <tr>
-            <td>August</td>
-            <td>Data1</td>
-            <td>Data2</td>
-            <td>Data3</td>
-            <td>Data4</td>
-            <td>Data5</td>
-            <td>TBD</td>
-          </tr>
-        </tbody>
-        
-      </table>
-    </div>
-  </section>
-  <script>
-    function calculateAndUpdateTotal(monthRow) {
-            let pge = parseFloat(monthRow.cells[1].textContent);
-            monthRow.cells[1].textContent = (pge/3).toFixed(2);
-            let water = parseFloat(monthRow.cells[2].textContent);
-            monthRow.cells[2].textContent = (water/3).toFixed(2);
-            let trash = parseFloat(monthRow.cells[3].textContent);
-            monthRow.cells[3].textContent = (trash/3).toFixed(2);
-            let internet = parseFloat(monthRow.cells[4].textContent);
-            monthRow.cells[4].textContent = (internet/3).toFixed(2);
-            
-            let sum = (pge ) + (water ) + (trash ) + (internet );
-            sum/=3;
-            
-            monthRow.cells[5].textContent = sum.toFixed(2);
-        }
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Jonathan Gyle Sean bills</h1>
 
-        // Call the function for September
-        var septemberRow = document.getElementById("septemberRow");
-        calculateAndUpdateTotal(septemberRow);
-</script>
+        <table class="table is-fullwidth is-striped is-mobile">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>PGE</th>
+              <th>Water/trash</th>
+              <th>Internet</th>
+              <th>Total</th>
+              <th>Due</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="septemberRow">
+              <td>September</td>
+              <td>9.79</td>
+              <td>0</td>
+              <td>46.39</td>
+              <td id="sepTot">Data5</td>
+              <td>10/12</td>
+            </tr>
+
+            <tr
+              id="octoberRow"
+              style="background-color: green"
+              class="has-text-weight-bold"
+            >
+              <td>October</td>
+              <td>28.18</td>
+              <td>201.12</td>
+              <td>30</td>
+              <td>Data4</td>
+
+              <td>11/7</td>
+            </tr>
+
+            <tr>
+              <td>November</td>
+              <td>Data1</td>
+              <td>Data2</td>
+              <td>Data3</td>
+              <td>Data4</td>
+              <td>TBD</td>
+            </tr>
+
+            <tr>
+              <td>December</td>
+              <td>Data1</td>
+              <td>Data2</td>
+              <td>Data3</td>
+              <td>Data4</td>
+              <td>TBD</td>
+            </tr>
+
+            <tr>
+              <td>January</td>
+              <td>Data1</td>
+              <td>Data2</td>
+              <td>Data3</td>
+              <td>Data4</td>
+              <td>TBD</td>
+            </tr>
+
+            <tr>
+              <td>February</td>
+              <td>Data1</td>
+              <td>Data2</td>
+              <td>Data3</td>
+              <td>Data4</td>
+              <td>TBD</td>
+            </tr>
+
+            <tr>
+              <td>March</td>
+              <td>Data1</td>
+              <td>Data2</td>
+              <td>Data3</td>
+              <td>Data4</td>
+              <td>TBD</td>
+            </tr>
+
+            <tr>
+              <td>April</td>
+              <td>Data1</td>
+              <td>Data2</td>
+              <td>Data3</td>
+              <td>Data4</td>
+              <td>TBD</td>
+            </tr>
+
+            <tr>
+              <td>May</td>
+              <td>Data1</td>
+              <td>Data2</td>
+              <td>Data3</td>
+              <td>Data4</td>
+              <td>TBD</td>
+            </tr>
+
+            <tr>
+              <td>June</td>
+              <td>Data1</td>
+              <td>Data2</td>
+              <td>Data3</td>
+              <td>Data4</td>
+              <td>TBD</td>
+            </tr>
+
+            <tr>
+              <td>July</td>
+              <td>Data1</td>
+              <td>Data2</td>
+              <td>Data3</td>
+              <td>Data4</td>
+              <td>TBD</td>
+            </tr>
+
+            <tr>
+              <td>August</td>
+              <td>Data1</td>
+              <td>Data2</td>
+              <td>Data3</td>
+              <td>Data4</td>
+              <td>TBD</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <script>
+      function calculateAndUpdateTotal(monthRow) {
+        const pge = parseFloat(monthRow.cells[1].textContent);
+        monthRow.cells[1].textContent = (pge / 3).toFixed(2);
+        const water = parseFloat(monthRow.cells[2].textContent);
+        monthRow.cells[2].textContent = (water / 3).toFixed(2);
+        const internet = parseFloat(monthRow.cells[3].textContent);
+        monthRow.cells[3].textContent = (internet / 3).toFixed(2);
+        const sum = (pge + water + internet) / 3;
+        console.log(sum);
+
+        monthRow.cells[4].textContent = sum.toFixed(2);
+      }
+
+      // Call the function for September and October
+      let septemberRow = document.getElementById("septemberRow");
+      let octoberRow = document.getElementById("octoberRow");
+      calculateAndUpdateTotal(septemberRow);
+      calculateAndUpdateTotal(octoberRow);
+    </script>
   </body>
 </html>
