@@ -26,7 +26,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr id="septemberRow">
+            <tr id="septemberRow" class="counted">
               <td>September</td>
               <td>9.79</td>
               <td>0</td>
@@ -35,107 +35,107 @@
               <td>10/12</td>
             </tr>
 
-            <tr id="octoberRow">
+            <tr id="octoberRow" class="counted">
               <td>October</td>
               <td>28.18</td>
               <td>201.12</td>
               <td>30</td>
-              <td>Data4</td>
+              <td>total</td>
 
               <td>11/7</td>
             </tr>
 
-            <tr id="novemberRow">
+            <tr id="novemberRow" class="counted">
               <td>November</td>
               <td>48.34</td>
               <td>174.18</td>
               <td>30</td>
-              <td>Data4</td>
+              <td>total</td>
               <td>12/7</td>
             </tr>
 
-            <tr
-              id="decRow"
-              style="background-color: green"
-              class="has-text-weight-bold"
-            >
+            <tr id="decRow" class="counted">
               <td>December</td>
               <td>42.47</td>
               <td>160.18</td>
               <td>30</td>
-              <td>Data4</td>
+              <td>total</td>
               <td>1/16</td>
             </tr>
 
-            <tr>
+            <tr
+              id="janRow"
+              style="background-color: green"
+              class="has-text-weight-bold counted"
+            >
               <td>January</td>
-              <td>Data1</td>
-              <td>Data2</td>
-              <td>Data3</td>
-              <td>Data4</td>
+              <td>50.10</td>
+              <td>146.17</td>
+              <td>30</td>
+              <td>total</td>
               <td>TBD</td>
             </tr>
 
             <tr>
               <td>February</td>
-              <td>Data1</td>
-              <td>Data2</td>
-              <td>Data3</td>
-              <td>Data4</td>
+              <td>PGE</td>
+              <td>water</td>
+              <td>30</td>
+              <td>total</td>
               <td>TBD</td>
             </tr>
 
             <tr>
               <td>March</td>
-              <td>Data1</td>
-              <td>Data2</td>
-              <td>Data3</td>
-              <td>Data4</td>
+              <td>PGE</td>
+              <td>water</td>
+              <td>30</td>
+              <td>total</td>
               <td>TBD</td>
             </tr>
 
             <tr>
               <td>April</td>
-              <td>Data1</td>
-              <td>Data2</td>
-              <td>Data3</td>
-              <td>Data4</td>
+              <td>PGE</td>
+              <td>water</td>
+              <td>30</td>
+              <td>total</td>
               <td>TBD</td>
             </tr>
 
             <tr>
               <td>May</td>
-              <td>Data1</td>
-              <td>Data2</td>
-              <td>Data3</td>
-              <td>Data4</td>
+              <td>PGE</td>
+              <td>water</td>
+              <td>30</td>
+              <td>total</td>
               <td>TBD</td>
             </tr>
 
             <tr>
               <td>June</td>
-              <td>Data1</td>
-              <td>Data2</td>
-              <td>Data3</td>
-              <td>Data4</td>
+              <td>PGE</td>
+              <td>water</td>
+              <td>30</td>
+              <td>total</td>
               <td>TBD</td>
             </tr>
 
             <tr>
               <td>July</td>
-              <td>Data1</td>
-              <td>Data2</td>
-              <td>Data3</td>
-              <td>Data4</td>
+              <td>PGE</td>
+              <td>water</td>
+              <td>30</td>
+              <td>total</td>
               <td>TBD</td>
             </tr>
 
             <tr>
               <td>August</td>
-              <td>Data1</td>
-              <td>Data2</td>
-              <td>Data3</td>
-              <td>Data4</td>
+              <td>PGE</td>
+              <td>water</td>
+              <td>30</td>
+              <td>total</td>
               <td>TBD</td>
             </tr>
           </tbody>
@@ -156,15 +156,10 @@
         monthRow.cells[4].textContent = sum.toFixed(2);
       }
 
-      // Call the function for September and October
-      let septemberRow = document.getElementById("septemberRow");
-      let octoberRow = document.getElementById("octoberRow");
-      let novemberRow = document.getElementById("novemberRow");
-      let decRow = document.getElementById("decRow");
-      calculateAndUpdateTotal(septemberRow);
-      calculateAndUpdateTotal(octoberRow);
-      calculateAndUpdateTotal(novemberRow);
-      calculateAndUpdateTotal(decRow);
+      const matches = document.querySelectorAll("tr.counted");
+      matches.forEach((month) => {
+        calculateAndUpdateTotal(month);
+      });
     </script>
   </body>
 </html>
