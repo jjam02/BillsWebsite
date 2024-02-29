@@ -63,11 +63,7 @@
               <td>1/16</td>
             </tr>
 
-            <tr
-              id="janRow"
-              style="background-color: green"
-              class="has-text-weight-bold counted"
-            >
+            <tr id="janRow" class="counted">
               <td>January</td>
               <td>50.10</td>
               <td>146.17</td>
@@ -76,13 +72,13 @@
               <td>2/07</td>
             </tr>
 
-            <tr>
+            <tr id="FebRow" class="has-text-weight-bold counted">
               <td>February</td>
-              <td>PGE</td>
-              <td>water</td>
+              <td>70.26</td>
+              <td>174.18</td>
               <td>30</td>
               <td>total</td>
-              <td>TBD</td>
+              <td>3/08</td>
             </tr>
 
             <tr>
@@ -143,21 +139,86 @@
       </div>
     </section>
     <script>
+      let waterG = 0;
+      let pgeG = 0;
+      let internetG = 0;
+      let sumG = 0;
+      let test = new Date();
+      test = test.getMonth();
+      const monthAbbreviations = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+
+      // Generate IDs for each month
+      const monthRowIDs = monthAbbreviations.map((month) => `${month}Row`);
+
       function calculateAndUpdateTotal(monthRow) {
         const pge = parseFloat(monthRow.cells[1].textContent);
+
         monthRow.cells[1].textContent = (pge / 3).toFixed(2);
         const water = parseFloat(monthRow.cells[2].textContent);
         monthRow.cells[2].textContent = (water / 3).toFixed(2);
         const internet = parseFloat(monthRow.cells[3].textContent);
         monthRow.cells[3].textContent = (internet / 3).toFixed(2);
         const sum = (pge + water + internet) / 3;
-        console.log(sum);
 
         monthRow.cells[4].textContent = sum.toFixed(2);
+        if (pge > pgeG) {
+          monthRow.cells[1].style = "background-color:  rgba(255, 0, 0, 0.5)";
+        } else if (pge < pgeG) {
+          monthRow.cells[1].style = "background-color: rgba(0, 128, 0, 0.5) ";
+        } else if (pge == pgeG) {
+          monthRow.cells[1].style =
+            "background-color: rgba(128, 128, 128, 0.5) ";
+        }
+        if (water > waterG) {
+          monthRow.cells[2].style = "background-color: rgba(255, 0, 0, 0.5)";
+        } else if (water < waterG) {
+          monthRow.cells[2].style = "background-color: rgba(0, 128, 0, 0.5) ";
+        } else if (water === waterG) {
+          monthRow.cells[2].style =
+            "background-color: rgba(128, 128, 128, 0.5) ";
+        }
+
+        if (internet > internetG) {
+          monthRow.cells[3].style = "background-color: rgba(255, 0, 0, 0.5)";
+        } else if (internet < internetG) {
+          monthRow.cells[3].style = "background-color: rgba(0, 128, 0, 0.5) ";
+        } else if (internet === internetG) {
+          monthRow.cells[3].style =
+            "background-color: rgba(128, 128, 128, 0.5) ";
+        }
+
+        if (sum > sumG) {
+          monthRow.cells[4].style = "background-color: rgba(255, 0, 0, 0.5)";
+        } else if (sum < sumG) {
+          monthRow.cells[4].style = "background-color: rgba(0, 128, 0, 0.5) ";
+        } else if (sum === sumG) {
+          monthRow.cells[4].style =
+            "background-color: rgba(128, 128, 128, 0.5) ";
+        }
+        pgeG = pge;
+        waterG = water;
+        internetG = internet;
+        sumG = sum;
       }
 
       const matches = document.querySelectorAll("tr.counted");
       matches.forEach((month) => {
+        if (month.id == monthRowIDs[test]) {
+          month.style = "background-color: rgba(0, 191, 255, 0.3)";
+        }
         calculateAndUpdateTotal(month);
       });
     </script>
